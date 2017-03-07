@@ -1,0 +1,26 @@
+---
+driver:
+  name: docker
+docker:
+  containers:
+    - name: ansible-role-influxdb-1404
+      image: ubuntu
+      image_version: 14.04
+      volume_mounts:
+        - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
+      ansible_groups:
+        - group1
+    - name: ansible-role-influxdb-1604
+      image: ubuntu
+      image_version: 16.04
+      volume_mounts:
+        - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
+      ansible_groups:
+        - group1
+
+ansible:
+  playbook: tests/playbook.yml
+  group_vars:
+    all:
+      influxdb_install_method: download
+      #influxdb_hostname: "{{ ansible_nodename }}"
