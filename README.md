@@ -8,7 +8,7 @@ This role is for versions of InfluxDB >= `1.2.0` and is currently defaulted to `
 
 ## Requirements
 
-Ansible version 1.6 and greater
+Ansible version `>= 1.9`
 
 ## Role Variables
 
