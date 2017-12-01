@@ -10,7 +10,7 @@
   get_url:
     url: "{{ influxdb_dl_url }}"
     dest: "{{ influxdb_pkg }}"
-    checksum: "md5:{{ influxdb_md5_checksum }}"
+    checksum: "sha256:{{ influxdb_sha256_checksum }}"
   when: ansible_python_version|version_compare('2.7.9', '>=')
   tags:
     - influxdb

@@ -2,11 +2,14 @@
 driver:
   name: docker
 platforms:
-  - name: ansible-role-influxdb-1404
+  - name: ansible-role-influxdb-ubuntu-1404
     image: ubuntu:14.04
 
-  - name: ansible-role-influxdb-1604
+  - name: ansible-role-influxdb-ubuntu-1604
     image: ubuntu:16.04
+
+  - name: ansible-role-influxdb-centos-7
+    image: centos:7
 
 lint:
   name: yamllint
@@ -14,8 +17,3 @@ lint:
 
 provisioner:
   name: ansible
-  inventory:
-    group_vars:
-      all:
-        influxdb_install_method: download
-        #influxdb_hostname: "{{ ansible_nodename }}"
