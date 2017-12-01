@@ -1,13 +1,10 @@
----
-
-language: ruby
-rvm:
-  - 2.2.3
+sudo: required
+language: python
+services:
+  - docker
 before_install:
-  - sudo apt-get update -qq
-  - "curl -fsSL https://get.docker.com/ | sh"
-  - sudo usermod -aG docker travis
+  - sudo apt-get -qq update
 install:
-  - bundle install --jobs=4
+  - pip install molecule docker
 script:
-  - bundle exec kitchen test
+  - molecule test
