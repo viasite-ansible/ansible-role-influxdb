@@ -15,7 +15,7 @@
   tags:
     - influxdb
 
-- name: Install curl when python < 2.7.9
+- name: Install curl when python < 2.7.9 [Debian/Ubuntu]
   apt:
     name: curl
     state: present
@@ -23,7 +23,7 @@
   tags:
     - influxdb
 
-- name: Download version when python < 2.7.9
+- name: Download version when python < 2.7.9 [Debian/Ubuntu]
   command: curl -o "{{ influxdb_pkg }}" "{{ influxdb_dl_url }}"
   args:
     creates: "{{ influxdb_pkg }}"
@@ -32,7 +32,7 @@
     - influxdb
     - skip_ansible_lint
 
-- name: Install package
+- name: Install package [Debian/Ubuntu]
   command: "dpkg --skip-same-version -i {{ influxdb_pkg }}"
   register: dpkg_result
   changed_when: "dpkg_result.stdout.startswith('Selecting')"
