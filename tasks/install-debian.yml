@@ -15,6 +15,7 @@
   apt_repository:
     repo: deb https://repos.influxdata.com/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} {{ influxdb_repository_channel }}
     state: present
+    update_cache: no
 
 - name: Install InfluxDB package [Debian/Ubuntu]
   apt:

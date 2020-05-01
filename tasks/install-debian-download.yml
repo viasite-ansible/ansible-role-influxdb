@@ -1,12 +1,12 @@
 ---
-- name: Install ca-certificates
+- name: Install ca-certificates [Debian/Ubuntu]
   apt:
     name: ca-certificates
     state: present
   tags:
     - influxdb
 
-- name: Download version when python >= 2.7.9
+- name: Download version when python >= 2.7.9 [Debian/Ubuntu]
   get_url:
     url: "{{ influxdb_dl_url }}"
     dest: "{{ influxdb_pkg }}"
