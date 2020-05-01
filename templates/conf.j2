@@ -379,7 +379,7 @@ hostname = "{{ influxdb_hostname }}"
 ### Controls one or many listeners for collectd data.
 ###
 
-[[collectd]]
+[collectd]
   # enabled = false
   enabled = {{ influxdb_collectd_enabled }}
   {% if influxdb_collectd_enabled == "true" %}
@@ -427,7 +427,7 @@ hostname = "{{ influxdb_hostname }}"
 ### Controls one or many listeners for OpenTSDB data.
 ###
 
-[[opentsdb]]
+[opentsdb]
   # enabled = false
   enabled = {{ influxdb_tsb_enabled }}
   {% if influxdb_tsb_enabled == "true" %}
