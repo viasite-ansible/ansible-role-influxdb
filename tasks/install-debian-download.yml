@@ -11,7 +11,7 @@
     url: "{{ influxdb_dl_url }}"
     dest: "{{ influxdb_pkg }}"
     checksum: "sha256:{{ influxdb_sha256_checksum }}"
-  when: ansible_python_version|version_compare('2.7.9', '>=')
+  when: ansible_python_version is version_compare('2.7.9', '>=')
   tags:
     - influxdb
 
@@ -19,7 +19,7 @@
   apt:
     name: curl
     state: present
-  when: ansible_python_version|version_compare('2.7.9', '<')
+  when: ansible_python_version is version_compare('2.7.9', '<')
   tags:
     - influxdb
 
@@ -27,7 +27,7 @@
   command: curl -o "{{ influxdb_pkg }}" "{{ influxdb_dl_url }}"
   args:
     creates: "{{ influxdb_pkg }}"
-  when: ansible_python_version|version_compare('2.7.9', '<')
+  when: ansible_python_version is version_compare('2.7.9', '<')
   tags:
     - influxdb
     - skip_ansible_lint
