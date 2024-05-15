@@ -1,12 +1,12 @@
 ---
-- include: install-debian-download.yml
+- include_tasks: install-debian-download.yml
   when: influxdb_install_method == "download" and ansible_os_family == "Debian"
 
-- include: install-debian.yml
+- include_tasks: install-debian.yml
   when: influxdb_install_method == "repository" and ansible_os_family == "Debian"
 
-- include: install-redhat.yml
+- include_tasks: install-redhat.yml
   when: ansible_os_family == "RedHat"
 
-- include: install-debian.yml
+- include_tasks: install-debian.yml
   when: ansible_os_family == "Debian"
